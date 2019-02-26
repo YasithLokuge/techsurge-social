@@ -20,7 +20,12 @@ service: techsurge-social # NOTE: update this with your service name
 provider:
   name: aws
   runtime: nodejs8.10
-
+  region: us-east-1
+  role: arn:aws:iam::649854575814:role/yalk-bot-lambda-role
+  environment:
+    BUFFER_ACCESS_TOKEN: ${file(./env.yml):prod.bufferAccessToken}
+    BUFFER_FACEBOOK_ID: ${file(./env.yml):prod.bufferFacebookId}
+    BUFFER_LINKEDIN_ID: ${file(./env.yml):prod.bufferLinkedinId}
 # you can overwrite defaults here
 #  stage: dev
 #  region: us-east-1
@@ -56,8 +61,10 @@ provider:
 
 functions:
   hello:
-    handler: handler.hello
-
+    handler: handler.publish
+    timeout: 10
+    events:
+      - schedule: rate(1 hour)
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
