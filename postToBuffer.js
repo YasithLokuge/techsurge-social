@@ -15,7 +15,7 @@ module.exports = function (message, link) {
           text: message,
           profile_ids: [process.env.BUFFER_FACEBOOK_ID,process.env.BUFFER_LINKEDIN_ID],
           'media[link]': link,
-          now: 'true' 
+          now: 'true'
         }
       };
     // Return new promise
