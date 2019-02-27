@@ -14,8 +14,6 @@ module.exports.publish = async (event, context) => {
     statusCode: 200,
     body: {
       message: {
-        bufferResponse: bufferResponse,
-        news: trends.news,
         url: trends.url
       },
       input: event

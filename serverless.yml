@@ -60,7 +60,7 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
-  hello:
+  publish:
     handler: handler.publish
     timeout: 10
     events:
