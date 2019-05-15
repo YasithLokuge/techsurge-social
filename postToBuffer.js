@@ -13,7 +13,7 @@ module.exports = function (message, link) {
            {  'Content-Type': 'application/x-www-form-urlencoded' },
         form: {
           text: message,
-          profile_ids: [process.env.BUFFER_FACEBOOK_ID,process.env.BUFFER_LINKEDIN_ID],
+          profile_ids: [process.env.BUFFER_FACEBOOK_ID,process.env.BUFFER_LINKEDIN_ID, process.env.BUFFER_TWITTER_ID],
           'media[link]': link,
           now: 'true'
         }
